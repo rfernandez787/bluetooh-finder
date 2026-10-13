@@ -4,32 +4,14 @@ A terminal UI for physically finding Bluetooth LE devices by signal strength —
 a hotter/colder detector for the tag on your keys, the earbud under the sofa, or
 whatever beacon is quietly advertising in the next room.
 
-```
- btfind  hci0 · scanning · 6 devices · sort:signal
-──────────────────────────────────────────────────────────────────────────────
-  SIGNAL           RSSI DIST    NAME                        ADDRESS           AGE
-▸ █████████·······  -62 ~1.4m   AirPods Pro [Apple]         8C:2D:AA:77:01:9F 0.0s
-  ████████········  -67 ~2.6m   (unnamed) [Microsoft]       5B:91:3C:0E:44:A2 0.3s
-  █████···········  -81 ~12m    Tile Mate [tag]             C4:8E:8F:12:34:56 0.1s
-  ███·············  -89 ~15m    (unnamed) [iBeacon]         D0:39:72:BE:AC:01 0.0s
-```
+![btfind device list: six BLE devices sorted by signal strength, with colour-coded signal bars, RSSI, estimated distance, name and address](docs/images/btfind-list.png)
 
 Select a device and press Enter to hunt it:
 
-```
-  Tile Mate  [tag]
-  C4:8E:8F:12:34:56 · public · 57 adverts
+![btfind hunt mode for a Tile tag: a large signal meter, a WARMER +1.7 dB trend call, and a sparkline of recent advertisements](docs/images/btfind-hunt.png)
 
-    ███████████████████████████·································
-    ███████████████████████████·································
-    ███████████████████████████·································
-
-    -81 dBm   ~13m   ▲ WARMER  +2.4 dB
-    last 0.0s · best -69 dBm · now -79 dBm
-
-    ▃▄▅█▄▂▄▇▄▅▂█▅▃▄▃▂▄▄▄▁▄▃▅▃▂▄▃▃▂▄▄▃▄▄▄▄▃▃▁▅▁▁▂▂▅▃▂▃▃▂▂▄▂▄▁▄
-    last 57 adverts, autoscaled
-```
+Both screenshots are from `./btfind --demo`, which simulates devices without a
+radio.
 
 ## Build
 
